@@ -5,10 +5,9 @@
 	user = htomine
 [color]
 	ui = auto
-[credential]
-
 [core]
 	editor = vim
+	excludesfile = /Users/htomine/.gitignore
 [hub]
 	protocol = https
 [filter "media"]
