@@ -1,0 +1,3 @@
+#!/bin/zsh
+
+history -E 1
