@@ -1,0 +1,35 @@
+[user]
+	name = htomine
+	email = htomine@gmail.com
+[github]
+	user = htomine
+[color]
+	ui = auto
+[credential]
+
+[core]
+	editor = vim
+[hub]
+	protocol = https
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
+[alias]
+	co = checkout
+	st = status
+	logg = log --stat --decorate=short --pretty=format:'%C(yellow)%h %Cgreen%cr %Cblue%cn%Cred%d %Creset%s %C(cyan)%b'
+	sync = !git checkout master && git pull origin master && git fetch -p origin && git branch -d $(git branch --merged | grep -v master | grep -v '*')
+	update = "!sh -c 'git ft; git rsm; git delete-merged-branches'"
+	ft = fetch --prune
+	rsm = update-ref refs/heads/master origin/master
+	delete-merged-branches = !"brs=`git branch --merged master | grep -v master | grep -v '*'` && git branch -D $brs || true"
+[push]
+	default = current
+[pull]
+	rebase = true
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[ghq]
+	root = /Users/htomine/src
