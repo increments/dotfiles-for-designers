@@ -132,48 +132,6 @@ else
     NeoBundle 'Shougo/neocomplcache'
 endif
 
-NeoBundle 'Shougo/unite.vim' " {{{
-NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'basyura/unite-rails'
-if executable('ag')
-    let g:unite_source_grep_command = 'ag'
-    let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
-    let g:unite_source_grep_recursive_opt = ''
-endif
-call unite#custom#profile('default', 'context', {
-            \ 'start_insert': 1,
-            \ 'direction': 'botright'
-            \ })
-function! DispatchUnite()
-    if getcwd() == '/Users/htomine/src/qiita'
-        Unite neomru/file rails/stylesheet rails/view rails/config
-    elseif isdirectory(getcwd()."/.git")
-        Unite file_rec/git
-    else
-        Unite file_rec/async
-    endif
-endfunction
-"nnoremap <silent> <C-p> :<C-u>Unite file_mru file_rec/async:! file/new<CR>
-nnoremap <silent> <C-p> :<C-u>call DispatchUnite()<CR>
-
-"call unite#custom#source('file_rec/async', 'ignore_pattern', '\(png\|gif\|jpeg\|jpg\)$')
-"call unite#custom#source('file_mru', 'ignore_pattern', '.*\/$\|.*Application\ Data.*')
-augroup UniteSettings
-    au!
-    au FileType unite call s:unite_my_settings()
-augroup END
-function! s:unite_my_settings()
-    nmap <buffer>       <ESC> <Plug>(unite_exit)
-    nmap <buffer>       <C-c> <Plug>(unite_exit)
-    nmap <buffer><expr> <C-k> unite#do_action('above')
-    imap <buffer><expr> <C-k> unite#do_action('above')
-    nmap <buffer><expr> <C-i> unite#do_action('left')
-    imap <buffer><expr> <C-i> unite#do_action('left')
-    imap <buffer><expr> <C-t> unite#do_action('tabopen')
-    nmap <buffer><expr> <C-t> unite#do_action('tabopen')
-endfunction
-" }}}
-
 
 NeoBundle 'Shougo/vimfiler', {'depends': 'Shougo/unite.vim'} " {{{
 " Use vimfiler as file manager instead of netrw.
