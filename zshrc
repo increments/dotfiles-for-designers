@@ -3,10 +3,6 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-export DOTFILES_ROOT=$(ghq root)/github.com/htomine/dotfiles
-
-typeset -U path
-
 # Enable zsh version conditional branch.
 autoload -Uz is-at-least
 
