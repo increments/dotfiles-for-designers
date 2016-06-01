@@ -7,7 +7,9 @@
 	ui = auto
 [core]
 	editor = vim
-	excludesfile = /Users/htomine/.gitignore
+	excludesfile = ~/.gitignore
+[init]
+	templatedir = ~/.gittemplate
 [hub]
 	protocol = https
 [filter "media"]
@@ -31,4 +33,4 @@
 	smudge = git-lfs smudge %f
 	required = true
 [ghq]
-	root = /Users/htomine/src
+	root = ~/src
