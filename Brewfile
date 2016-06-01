@@ -1,6 +1,7 @@
 brew 'direnv'
 brew 'git'
 brew 'hub'
+brew 'nodebrew'
 brew 'rbenv'
 brew 'rbenv-default-gems'
 brew 'ruby-build'
