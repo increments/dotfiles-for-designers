@@ -22,10 +22,12 @@ create_symlink() {
 cd "$(dirname "$BASH_SOURCE")/.."
 
 except=(
+  Brewfile
   README.md
   bin
   script
   zfunctions
+  zshenv.d
   zshrc.d
 )
 for file in *; do
