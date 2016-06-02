@@ -23,5 +23,8 @@ do
         ;;
       esac
     done
+
+    # Close STDIN
+    exec <&-
   fi
 done
