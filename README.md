@@ -1,9 +1,9 @@
-# htomine/dotfiles
+# dotfiles-for-designers
 
 ## Installation
 
 ```bash
-curl -fsSL https://raw.github.com/htomine/dotfiles/master/script/install.sh | bash
+curl -fsSL https://raw.github.com/increments/dotfiles-for-designers/master/script/install.sh | bash
 ```
 
 ## Sync
