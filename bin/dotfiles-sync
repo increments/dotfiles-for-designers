@@ -9,7 +9,11 @@ create_symlink() {
   file_in_home="$HOME/.$1"
 
   if [[ -e $file_in_home ]]; then
-    if [[ ! -L $file_in_home ]]; then
+    if [[ -L $file_in_home ]]; then
+      if [[ "$(readlink $file_in_home)" != $file_in_dotfiles ]]; then
+        warning "$file_in_home exists but is not linked to $file_in_dotfiles"
+      fi
+    else
       warning "$file_in_home exists but is not a symlink."
     fi
   else
