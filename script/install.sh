@@ -31,6 +31,10 @@ fi
 
 cd $installation_path
 
+case $OSTYPE in
+darwin*) ./script/setup_osx.sh;;
+esac
+
 ./bin/dotfiles-sync
 
 echo "Done."
