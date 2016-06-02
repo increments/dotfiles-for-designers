@@ -7,7 +7,7 @@ command_exist() {
   return $?
 }
 
-installation_path="$HOME/src/github.com/htomine/dotfiles"
+installation_path="$HOME/src/github.com/increments/dotfiles-for-designers"
 
 if ! command_exist git; then
   echo "Installing git..."
@@ -20,8 +20,8 @@ if ! command_exist git; then
 fi
 
 if [[ ! -d "$installation_path" ]]; then
-  echo "Cloning htomine/dotfiles..."
-  git clone --recursive https://github.com/htomine/dotfiles.git "$installation_path"
+  echo "Cloning increments/dotfiles-for-designers..."
+  git clone --recursive https://github.com/increments/dotfiles-for-designers.git "$installation_path"
 fi
 
 if [[ ! -d "${ZDOTDIR:-$HOME}/.zprezto" ]]; then
