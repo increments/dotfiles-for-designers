@@ -27,6 +27,12 @@ fi
 if [[ ! -d "${ZDOTDIR:-$HOME}/.zprezto" ]]; then
   echo "Installing zprezto..."
   git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+
+  for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/* ; do
+    if [[ ! -e "$installation_path/$rcfile" ]]; then
+      ln -s "$rcfile" "$ZDOTDIR:-$HOME}/.${rcfile}"
+    fi
+  done
 fi
 
 cd $installation_path
