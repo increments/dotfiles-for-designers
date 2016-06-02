@@ -26,9 +26,7 @@ except=(
   README.md
   bin
   script
-  zfunctions
-  zshenv.d
-  zshrc.d
+  zsh
 )
 for file in *; do
   filename="$(basename "$file")"
