@@ -1,4 +1,5 @@
 brew 'direnv'
+brew 'cmake'
 brew 'git'
 brew 'hub'
 brew 'nodebrew'
