@@ -1,5 +1,3 @@
-/vim/bundle
-/vim/.netrwhist
-
+/vim/plugged
 /rbenv
 !/rbenv/default-gems

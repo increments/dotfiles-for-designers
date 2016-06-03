@@ -47,3 +47,5 @@ if [[ -e $HOME/.gitconfig && ! -e $HOME/.gitconfig.local && $(grep -c 'increment
   warning "  git config --file=$HOME/.gitconfig.local user.email 'YOUR EMAIL'"
   warning "  git config --file=$HOME/.gitconfig.local github.user 'YOUR GITHUB ACCOUNT'"
 fi
+
+vim -c 'PlugInstall | qall'
