@@ -18,11 +18,11 @@
 	co = checkout
 	st = status
 	logg = log --stat --decorate=short --pretty=format:'%C(yellow)%h %Cgreen%cr %Cblue%cn%Cred%d %Creset%s %C(cyan)%b'
-	sync = !git checkout master && git pull origin master && git fetch -p origin && git branch -d $(git branch --merged | grep -v master | grep -v '*')
-	update = "!sh -c 'git ft; git rsm; git delete-merged-branches'"
-	ft = fetch --prune
-	rsm = update-ref refs/heads/master origin/master
-	delete-merged-branches = !"brs=`git branch --merged master | grep -v master | grep -v '*'` && git branch -D $brs || true"
+
+	current-branch = symbolic-ref --quiet --short HEAD
+	delete-merged-branches = !BRS=`git branch --merged master | grep -v master | grep -v '*'` ; git branch -D $BRS
+	sync = !git checkout master; git pull origin master; git update
+	update = !git fetch --prune; git update-ref refs/heads/master origin/master; git delete-merged-branches
 [push]
 	default = current
 [pull]

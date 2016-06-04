@@ -42,11 +42,12 @@ function precmd () {
     # local BOLD_YELLOW="%{${fg_bold[yellow]}%}"
     # local BOLD_WHITE="%{${fg_bold[white]}%}"
     # local BOLD_GRAY="%{${fg_bold[gray]}%}"
+    local color branch st
 
-    local color
     PROMPT="⚡️ ${YELLOW} $(squashed_pwd)${RESET} "
-    st=`command git status 2>/dev/null`
-    if [ $? ] ; then
+    branch="$(git current-branch 2> /dev/null)"
+    if [ $branch ] ; then
+        st=`command git status 2>/dev/null`
         if [[ -n `echo "$st" | grep "^nothing to"` ]] ; then
             color=$CYAN
         elif [[ -n `echo "$st" | grep "^nothing added"` ]] ; then
@@ -56,9 +57,6 @@ function precmd () {
         else
             color=$RED
         fi
-        branch=$(git_current_branch)
-        if [ $branch ] ; then
-            PROMPT+="$color$branch%b${RESET} "
-        fi
+        PROMPT+="$color$branch%b${RESET} "
     fi
 }
