@@ -1,11 +1,20 @@
 autoload -U colors
-REPORTTIME=3
 colors
 
+# If nonnegative, commands whose combined user and system execution times (measured in seconds) are
+# greater than this value have timing statistics printed for them. Output is suppressed for
+# commands executed within the line editor, including completion; commands explicitly marked with
+# the time keyword still cause the summary to be printed in this case.
+REPORTTIME=3
+
+# This prompt is displayed on the right-hand side of the screen when the primary prompt is being
+# displayed on the left.
 RPROMPT="%T"
 
+# Remove any right prompt from display when accepting a command line.
 setopt transient_rprompt
 
+# Executed before each prompt.
 function precmd () {
     # local DEFAULT=$'%{\e[1;0m%}'
     local RESET="%{${reset_color}%}"
