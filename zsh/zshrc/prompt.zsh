@@ -14,6 +14,16 @@ RPROMPT="%T"
 # Remove any right prompt from display when accepting a command line.
 setopt transient_rprompt
 
+# Echo squashed current working directory.
+#
+#     $ pwd
+#     /Users/me/src/github.com/icrements/dotfiles-for-designers
+#     $ squashed_pwd
+#     ~/s/g/i/dotfiles-for-designers
+function squashed_pwd() {
+    echo "$(ruby -e "puts '$PWD'.gsub(%r{^$HOME}, '~')" | ruby -pe "gsub(%r{([^/]+)/}) { \"#{\$1[0]}/\" }")"
+}
+
 # Executed before each prompt.
 function precmd () {
     # local DEFAULT=$'%{\e[1;0m%}'
@@ -34,7 +44,7 @@ function precmd () {
     # local BOLD_GRAY="%{${fg_bold[gray]}%}"
 
     local color
-    PROMPT="⚡️ ${YELLOW} %~${RESET} "
+    PROMPT="⚡️ ${YELLOW} $(squashed_pwd)${RESET} "
     st=`command git status 2>/dev/null`
     if [ $? ] ; then
         if [[ -n `echo "$st" | grep "^nothing to"` ]] ; then
