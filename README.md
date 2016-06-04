@@ -14,6 +14,12 @@ curl -fsSL https://raw.github.com/increments/dotfiles-for-designers/master/scrip
 dotfiles-sync
 ```
 
+## Uninstall
+
+```bash
+curl -fsSL https://raw.github.com/increments/dotfiles-for-designers/master/script/uninstall.sh | bash
+```
+
 ## Tools
 
 ### [rbenv](https://github.com/rbenv/rbenv)
