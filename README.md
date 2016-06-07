@@ -1,6 +1,8 @@
 # dotfiles-for-designers
 
-## Installation
+A dotfile repo that let you use CUI fluently. It is designed for, but not restricted to, designers at Increments.
+
+## Install
 
 ```bash
 curl -fsSL https://raw.github.com/increments/dotfiles-for-designers/master/script/install.sh | bash
