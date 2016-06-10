@@ -33,3 +33,5 @@
 	required = true
 [ghq]
 	root = ~/src
+[url "git@github.com:"]
+	pushInsteadOf = "https://github.com/"
