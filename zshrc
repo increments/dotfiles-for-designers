@@ -1,3 +1,9 @@
+# Load all functions in zsh/functions directory lazily
+fpath=(${DOTFILES_ROOT}/zsh/functions(N-/) $fpath)
+for i in $(ls ${DOTFILES_ROOT}/zsh/functions) ; do
+    autoload -U $i
+done
+
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
