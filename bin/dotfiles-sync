@@ -27,6 +27,9 @@ create_symlink() {
 # Move to dotfiles root
 cd "$(dirname "$BASH_SOURCE")/.."
 
+git pull origin master || exit 1
+git submodule update --init --recursive || exit 1
+
 except=(
   Brewfile
   README.md
