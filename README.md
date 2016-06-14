@@ -14,6 +14,13 @@ curl -fsSL https://raw.github.com/increments/dotfiles-for-designers/master/scrip
 dotfiles-sync
 ```
 
+## Zsh Keybindings
+
+Some keybindings are installed. See zsh/zshrc/keybindings.zsh
+
+- Ctrl-T -> jump to ghq directories.
+- Ctrl-G + Ctrl-S -> git status
+
 ## Tools
 
 ### [rbenv](https://github.com/rbenv/rbenv)
