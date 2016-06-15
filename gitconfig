@@ -48,3 +48,5 @@
 	main = F ?!git commit --fixup %(commit)
 	main = S ?!git commit --squash %(commit)
 	tree = B @hub browse -- tree/%(commit)/%(directory)
+[rebase]
+	autoSquash = true
