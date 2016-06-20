@@ -40,3 +40,17 @@ Install Node.js then use it globally:
 nodebrew install-binary v6.2.0
 nodebrew use v6.2.0
 ```
+
+## Commands
+
+### dotfiles-sync
+
+Sync dotfiles with remote server.
+
+### git-work-logs
+
+Output your activities in github.com to stdout in Markdown format. It is useful to write your daily log, a.k.a. 日報.
+
+```
+git-work-logs | pbcopy
+```

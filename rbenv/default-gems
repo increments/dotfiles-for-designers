@@ -1,2 +1,5 @@
 bundler
+git
+netrc
+octokit
 pry
