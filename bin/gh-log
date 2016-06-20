@@ -7,9 +7,9 @@ require 'octokit'
 remote_name = ARGV[1] || 'origin'
 
 git = Git.open('./')
-remote = git.remotes.select { |r| r.name == remote_name }.first
+remote = git.remotes.find { |r| r.name == remote_name }
 repo =
-  if (match = remote.url.match(%r{^git@[^:]+:(?<repo>.+)\.git}))
+  if (match = remote.url.match(%r{^git@[^:]+:(?<repo>.+)(\.git)?}))
     match['repo']
   elsif (match = remote.url.match(%r{^https://[^/]+/(?<repo>.+)\.git}))
     match['repo']
