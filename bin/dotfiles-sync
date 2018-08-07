@@ -6,7 +6,19 @@ warning() {
   printf "\e[33m$1\e[0m\n"
 }
 
+backup() {
+  mkdir -p "$HOME/.backup/dotfiles-for-designers"
+  filename="$(basename $1)"
+  echo "Moving $HOME/$filename to $HOME/.backup/dotfiles-for-designers for backup"
+  mv "$HOME/$filename" "$HOME/.backup/dotfiles-for-designers/"
+}
+
 create_symlink() {
+  echo "Creating symlink at $2"
+  ln -s "$1" "$2"
+}
+
+sync() {
   file_in_dotfiles="$PWD/$1"
   file_in_home="$HOME/.$1"
 
@@ -14,13 +26,16 @@ create_symlink() {
     if [[ -L $file_in_home ]]; then
       if [[ "$(readlink $file_in_home)" != $file_in_dotfiles ]]; then
         warning "$file_in_home exists but is not linked to $file_in_dotfiles"
+        backup $file_in_home
+        create_symlink "$file_in_dotfiles" "$file_in_home"
       fi
     else
       warning "$file_in_home exists but is not a symlink."
+      backup $file_in_home
+      create_symlink "$file_in_dotfiles" "$file_in_home"
     fi
   else
-    echo "Creating symlink at $file_in_home"
-    ln -s "$file_in_dotfiles" "$file_in_home"
+    create_symlink "$file_in_dotfiles" "$file_in_home"
   fi
 }
 
@@ -40,7 +55,7 @@ except=(
 for file in *; do
   filename="$(basename "$file")"
   if [[ ! " ${except[@]} " =~ " ${filename} " ]] ; then
-    create_symlink $filename
+    sync $filename
   fi
 done
 

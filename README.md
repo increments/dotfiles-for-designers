@@ -39,6 +39,12 @@ Some keybindings are installed. See zsh/zshrc/keybindings.zsh
 - Ctrl-T -> jump to ghq directories.
 - Ctrl-G + Ctrl-S -> git status
 
+## Uninstall
+
+```bash
+curl -fsSL https://raw.github.com/increments/dotfiles-for-designers/master/script/uninstall.sh | bash
+```
+
 ## Tools
 
 ### [rbenv](https://github.com/rbenv/rbenv)
